@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fernanda — Portofolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav>
+      <div class="wrap">
+        <div class="brand">NdaPorto</div>
+        <button
+          class="nav-toggle"
+          id="navToggle"
+          aria-label="Buka menu"
+          aria-expanded="false"
+        >
+          <span></span><span></span><span></span>
+        </button>
+        <div class="nav-links" id="navLinks">
+          <a href="#about">Tentang</a>
+          <a href="#skills">Keahlian</a>
+          <a href="#projects">Proyek</a>
+          <a href="#contact">Kontak</a>
+        </div>
+      </div>
+    </nav>
+
+    <header class="hero" id="top">
+      <div class="wrap">
+        <div>
+          <div class="eyebrow mono">Informatika Engineering</div>
+          <h1>Selamat <em>Datang</em> Pada Website Saya</h1>
+          <p class="lede">
+            Saya Fernanda Rifky, Mahasiswa Aktif Teknik Informatika yang
+            sedang fokus pada pengembangan web dan pengolahan data. aplikasi web, sampai
+            eksperimen kecil dengan machine learning.
+          </p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#projects">Lihat Proyek</a>
+            <a class="btn btn-ghost" href="#contact">Hubungi Saya</a>
+          </div>
+        </div>
+        <div class="terminal">
+          <div class="terminal-bar">
+            <div class="dot r"></div>
+            <div class="dot y"></div>
+            <div class="dot g"></div>
+            <span>Photo Profile</span>
+          </div>
+          <div class="terminal-photo">
+            <!-- Kartu flip: klik foto untuk membalik -->
+            <div
+              class="flip-card"
+              id="flipCard"
+              role="button"
+              tabindex="0"
+              aria-label="Tekan untuk melihat pesan"
+            >
+              <div class="flip-card-inner">
+                <div class="flip-card-front">
+                  <img
+                    src="Fer.jpeg"
+                    alt="Foto Fernanda Rifky Syahrial"
+                    class="profile-photo"
+                  />
+                </div>
+                <div class="flip-card-back">
+                  <p class="mono">
+                    404 Human Error<br />
+                    Thanks your for stopping by.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section id="about" class="reveal">
+      <div class="wrap">
+        <div class="about-grid">
+          <div class="section-tag mono">01 — Tentang</div>
+          <div>
+            <p>
+              Saya mahasiswa Teknik Informatika, dengan minat utama pada pengembangan
+              perangkat lunak dan pemrosesan data. Saya senang belajar hal baru
+              lewat proyek nyata — baik itu aplikasi kecil untuk kebutuhan
+              sehari-hari maupun eksperimen algoritma.
+            </p>
+            <p>
+              Di luar kelas, saya aktif mengeksplorasi pengembangan Frontend dan
+              sedang mendalami pengembangan Backend, manajemen
+              basis data, serta pemodelan kecerdasan buatan. Saat ini terus
+              memperdalam dunia software engineering dan arsitektur sistem.
+            </p>
+            <dl class="facts">
+              <div>
+                <dt>Lokasi</dt>
+                <dd>Madiun, Jawa Timur, Indonesia</dd>
+              </div>
+              <div>
+                <dt>Fokus</dt>
+                <dd>Software Engineering</dd>
+              </div>
+              <div>
+                <dt>Status</dt>
+                <dd>Mahasiswa</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="skills-band reveal" id="skills">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-tag mono">02 — Keahlian</div>
+          <h2>Keahlian</h2>
+        </div>
+        <div class="skill-cols">
+          <div class="skill-row">
+            <div class="skill-cat">Bahasa</div>
+            <div class="skill-items">
+              <span>Java</span><span>PHP</span><span>Python</span
+              ><span>JavaScript</span>
+            </div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-cat">Web & Framework</div>
+            <div class="skill-items">
+              <span>Laravel</span><span>Node.js</span><span>Express.js</span
+              ><span>Flask</span>
+            </div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-cat">Data & Tools</div>
+            <div class="skill-items">
+              <span>MySQL</span><span>Git</span><span>Android Studio</span
+              ><span>NetBeans</span><span>Vscode</span><span>Sublimteks</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="reveal">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-tag mono">03 — Proyek</div>
+          <h2>Proyek Saya</h2>
+        </div>
+
+        <div class="project">
+          <div class="project-index mono">01</div>
+          <div>
+            <h3>Klasifikasi Kesehatan Daun Menggunakan Flask &amp; VGG16</h3>
+            <p>
+              Membangun aplikasi web berbasis deep learning untuk
+              mengklasifikasikan kesehatan daun menggunakan model arsitektur
+              VGG16 yang terhubung dengan backend Flask dan database SQLite.
+            </p>
+            <div class="stack-tags">
+              <span>Python</span><span>Flask</span><span>TensorFlow</span
+              ><span>SQLite</span>
+            </div>
+            <a class="project-link" href="https://github.com/fernandarif/Flask/tree/main/Tugas%20Akhir" target="_blank" rel="noopener noreferrer">Lihat detail kode →</a>
+          </div>
+        </div>
+        <div class="project">
+          <div class="project-index mono">02</div>
+          <div>
+            <h3>Aplikasi Pemesanan Cafe Point Of Sale</h3>
+            <p>
+              Mengembangkan antarmuka pengguna Java Swing di Windsurf yang
+              dilengkapi fitur simulasi pembayaran transaksi Virtual Account
+              menggunakan Midtrans Sandbox API.
+            </p>
+            <div class="stack-tags">
+              <span>Java</span><span>Java Swing</span><span>NetBeans</span
+              ><span>API</span>
+            </div>
+            <<a class="project-link" href="https://github.com/fernandarif/Pos" target="_blank" rel="noopener noreferrer">Lihat detail kode →</a>
+          </div>
+        </div>
+
+        <div class="project">
+          <div class="project-index mono">03</div>
+          <div>
+            <h3>Sistem Backend Manajemen Data Laravel</h3>
+            <p>
+              Membuat struktur routing, migrasi database, dan pengolahan data
+              menggunakan framework Laravel di atas lingkungan server lokal
+              untuk mendukung sistem informasi berbasis web.
+            </p>
+            <div class="stack-tags">
+              <span>PHP</span><span>Laravel</span><span>MySQL</span
+              ><span>Composer</span>
+            </div>
+            <a class="project-link" href="#">Camming Soon →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer id="contact">
+      <div class="wrap">
+        <div>
+          <h2>Silahkan Hubungi.</h2>
+          <p>
+            Terbuka untuk kesempatan kolaborasi proyek, diskusi seputar
+            pemrograman, atau pengembangan perangkat lunak. Hubungan dan
+            informasi anda sangat perlu bagi saya. Silakan hubungi lewat 
+            kanal berikut.
+          </p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="mailto:fernandaky004@gmail.com"
+              >Kirim Email</a
+            >
+          </div>
+        </div>
+        <ul class="contact-list">
+          <li>
+            <span>EMAIL</span
+            ><a href="mailto:fernandaky004@gmail.com"
+              >fernandaky004@gmail.com</a
+            >
+          </li>
+          <li>
+            <span>GITHUB</span
+            ><a href="https://github.com/fernandarif" target="_blank"
+              >github.com/fernandarif</a
+            >
+          </li>
+          <li>
+            <span>INSTAGRAM</span
+            ><a href="https://instagram.com/fernandarif_" target="_blank"
+              >fernandarif_</a
+            >
+          </li>
+                    <li>
+            <span>TIKTOK</span
+            ><a href="https://tiktok.com/@fernanda_ky29" target="_blank"
+              >fernanda_ky29</a
+            >
+          </li>
+        </ul>
+      </div>
+      <div class="wrap foot-note">
+        <span>© <span id="year"></span> By Masnda</span>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
