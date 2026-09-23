@@ -2,20 +2,32 @@
 <html lang="id">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <title>Fernanda — Portofolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Dancing+Script:wght@600&family=Fraunces:ital,opsz,wght@0,9..144,700;0,9..144,800;1,9..144,700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <!-- ---------- PRELOADER: tampil 4 detik pertama ---------- -->
+    <div class="preloader" id="preloader" aria-hidden="true">
+      <div class="loader-mark-wrap">
+        <div class="loader-mark">
+          <span class="letter letter-f">F</span><span class="letter letter-r">R</span>
+        </div>
+        <div class="loader-wipe"></div>
+      </div>
+      <div class="loader-line"></div>
+      <div class="loader-label">Welocome<span>To</span> — MyPorto</div>
+    </div>
+
     <nav>
       <div class="wrap">
-        <div class="brand">NdaPorto</div>
+        <div class="brand"><img src="logo.jpeg" alt="Fernanda Rifky Syahrial" class="brand-logo" /></div>
         <button
           class="nav-toggle"
           id="navToggle"
@@ -56,7 +68,6 @@
             <span>Photo Profile</span>
           </div>
           <div class="terminal-photo">
-            <!-- Kartu flip: klik foto untuk membalik -->
             <div
               class="flip-card"
               id="flipCard"
@@ -85,24 +96,24 @@
       </div>
     </header>
 
-    <section id="about" class="reveal">
+    <section id="about">
       <div class="wrap">
         <div class="about-grid">
           <div class="section-tag mono">01 — Tentang</div>
           <div>
-            <p>
+            <p class="reveal">
               Saya mahasiswa Teknik Informatika, dengan minat utama pada pengembangan
               perangkat lunak dan pemrosesan data. Saya senang belajar hal baru
               lewat proyek nyata — baik itu aplikasi kecil untuk kebutuhan
               sehari-hari maupun eksperimen algoritma.
             </p>
-            <p>
+            <p class="reveal">
               Di luar kelas, saya aktif mengeksplorasi pengembangan Frontend dan
               sedang mendalami pengembangan Backend, manajemen
               basis data, serta pemodelan kecerdasan buatan. Saat ini terus
               memperdalam dunia software engineering dan arsitektur sistem.
             </p>
-            <dl class="facts">
+            <dl class="facts reveal">
               <div>
                 <dt>Lokasi</dt>
                 <dd>Madiun, Jawa Timur, Indonesia</dd>
@@ -121,28 +132,28 @@
       </div>
     </section>
 
-    <section class="skills-band reveal" id="skills">
+    <section class="skills-band" id="skills">
       <div class="wrap">
-        <div class="section-head">
+        <div class="section-head reveal">
           <div class="section-tag mono">02 — Keahlian</div>
           <h2>Keahlian</h2>
         </div>
         <div class="skill-cols">
-          <div class="skill-row">
+          <div class="skill-row reveal">
             <div class="skill-cat">Bahasa</div>
             <div class="skill-items">
               <span>Java</span><span>PHP</span><span>Python</span
               ><span>JavaScript</span>
             </div>
           </div>
-          <div class="skill-row">
+          <div class="skill-row reveal">
             <div class="skill-cat">Web & Framework</div>
             <div class="skill-items">
               <span>Laravel</span><span>Node.js</span><span>Express.js</span
               ><span>Flask</span>
             </div>
           </div>
-          <div class="skill-row">
+          <div class="skill-row reveal">
             <div class="skill-cat">Data & Tools</div>
             <div class="skill-items">
               <span>MySQL</span><span>Git</span><span>Android Studio</span
@@ -153,14 +164,14 @@
       </div>
     </section>
 
-    <section id="projects" class="reveal">
+    <section id="projects">
       <div class="wrap">
-        <div class="section-head">
+        <div class="section-head reveal">
           <div class="section-tag mono">03 — Proyek</div>
           <h2>Proyek Saya</h2>
         </div>
 
-        <div class="project">
+        <div class="project reveal">
           <div class="project-index mono">01</div>
           <div>
             <h3>Klasifikasi Kesehatan Daun Menggunakan Flask &amp; VGG16</h3>
@@ -176,7 +187,7 @@
             <a class="project-link" href="https://github.com/fernandarif/Flask/tree/main/Tugas%20Akhir" target="_blank" rel="noopener noreferrer">Lihat detail kode →</a>
           </div>
         </div>
-        <div class="project">
+        <div class="project reveal">
           <div class="project-index mono">02</div>
           <div>
             <h3>Aplikasi Pemesanan Cafe Point Of Sale</h3>
@@ -189,11 +200,11 @@
               <span>Java</span><span>Java Swing</span><span>NetBeans</span
               ><span>API</span>
             </div>
-            <<a class="project-link" href="https://github.com/fernandarif/Pos" target="_blank" rel="noopener noreferrer">Lihat detail kode →</a>
+            <a class="project-link" href="https://github.com/fernandarif/Pos" target="_blank" rel="noopener noreferrer">Lihat detail kode →</a>
           </div>
         </div>
 
-        <div class="project">
+        <div class="project reveal">
           <div class="project-index mono">03</div>
           <div>
             <h3>Sistem Backend Manajemen Data Laravel</h3>
@@ -214,12 +225,12 @@
 
     <footer id="contact">
       <div class="wrap">
-        <div>
+        <div class="reveal">
           <h2>Silahkan Hubungi.</h2>
           <p>
             Terbuka untuk kesempatan kolaborasi proyek, diskusi seputar
             pemrograman, atau pengembangan perangkat lunak. Hubungan dan
-            informasi anda sangat perlu bagi saya. Silakan hubungi lewat 
+            informasi anda sangat perlu bagi saya. Silakan hubungi lewat
             kanal berikut.
           </p>
           <div class="cta-row">
@@ -229,25 +240,25 @@
           </div>
         </div>
         <ul class="contact-list">
-          <li>
+          <li class="reveal">
             <span>EMAIL</span
             ><a href="mailto:fernandaky004@gmail.com"
               >fernandaky004@gmail.com</a
             >
           </li>
-          <li>
+          <li class="reveal">
             <span>GITHUB</span
             ><a href="https://github.com/fernandarif" target="_blank"
               >github.com/fernandarif</a
             >
           </li>
-          <li>
+          <li class="reveal">
             <span>INSTAGRAM</span
             ><a href="https://instagram.com/fernandarif_" target="_blank"
               >fernandarif_</a
             >
           </li>
-                    <li>
+          <li class="reveal">
             <span>TIKTOK</span
             ><a href="https://tiktok.com/@fernanda_ky29" target="_blank"
               >fernanda_ky29</a

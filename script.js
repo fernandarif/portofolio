@@ -1,3 +1,22 @@
+// ---------- Preloader: tampil selama 4 detik ----------
+(function () {
+  const preloader = document.getElementById("preloader");
+  if (preloader) {
+    document.body.style.overflow = "hidden";
+
+    // 3.4 detik: mulai animasi menutup "ular" pada FR (bergelombang lalu memudar)
+    setTimeout(() => {
+      preloader.classList.add("closing");
+    }, 3400);
+
+    // 4 detik: preloader benar-benar hilang, konten situs terlihat
+    setTimeout(() => {
+      preloader.classList.add("hide");
+      document.body.style.overflow = "";
+    }, 4000);
+  }
+})();
+
 // Tandai bahwa JavaScript berhasil jalan.
 document.documentElement.classList.add("js");
 
@@ -90,10 +109,6 @@ if ("IntersectionObserver" in window && revealEls.length) {
   );
 
   revealEls.forEach((el) => observer.observe(el));
-
-  setTimeout(() => {
-    revealEls.forEach((el) => el.classList.add("in-view"));
-  }, 1500);
 } else {
   revealEls.forEach((el) => el.classList.add("in-view"));
 }

@@ -51,6 +51,177 @@ a {
   padding: 0 32px;
 }
 
+/* ---------- PRELOADER ---------- */
+.preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: var(--navy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 22px;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+.preloader.hide {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.loader-mark-wrap {
+  position: relative;
+  display: inline-flex;
+  overflow: hidden;
+  padding: 0 6px;
+}
+
+.loader-mark {
+  display: flex;
+  align-items: baseline;
+  gap: 1px;
+  font-family: "Fraunces", "Newsreader", serif;
+  font-size: 76px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.loader-mark .letter {
+  display: inline-block;
+  color: var(--cream);
+}
+
+.loader-mark .letter-f {
+  animation: letter-glow 2.4s ease-in-out 0.9s infinite;
+}
+
+.loader-mark .letter-r {
+  color: var(--brass);
+  font-style: italic;
+  font-weight: 700;
+  animation: letter-glow 2.4s ease-in-out 0.9s infinite;
+}
+
+@keyframes letter-glow {
+  0%, 100% {
+    text-shadow: 0 0 0 rgba(184, 146, 90, 0);
+  }
+  50% {
+    text-shadow: 0 0 22px rgba(184, 146, 90, 0.55);
+  }
+}
+
+/* Bar brass yang menutupi FR di awal, lalu menyapu pergi ke kanan
+   untuk "membuka" tulisan (seperti tirai dibuka). */
+.loader-wipe {
+  position: absolute;
+  inset: 0;
+  background: var(--brass);
+  transform: translateX(0%);
+  animation: wipe-reveal 0.6s cubic-bezier(0.65, 0, 0.35, 1) 0.15s forwards;
+}
+
+@keyframes wipe-reveal {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+.loader-line {
+  width: 0;
+  height: 2px;
+  background: var(--brass);
+  animation: line-draw 0.5s ease 0.85s forwards;
+}
+
+@keyframes line-draw {
+  to {
+    width: 88px;
+  }
+}
+
+.loader-label {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11.5px;
+  letter-spacing: 0.14em;
+  color: var(--beige);
+  opacity: 0;
+  animation: label-in 0.6s ease 1.05s forwards;
+}
+
+.loader-label span {
+  color: var(--brass);
+}
+
+@keyframes label-in {
+  to {
+    opacity: 1;
+  }
+}
+
+/* ---------- PRELOADER CLOSING SEQUENCE ---------- */
+/* Dipicu lewat class .closing sesaat sebelum preloader hilang: bar brass
+   menyapu balik dari kanan menutup FR seperti tirai ditutup, garis tipis
+   menutup ke tengah, label memudar turun. */
+.preloader.closing .loader-wipe {
+  animation: wipe-close 0.6s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+@keyframes wipe-close {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+.preloader.closing .loader-line {
+  animation: line-close 0.4s ease forwards;
+}
+
+.preloader.closing .loader-label {
+  animation: label-out 0.35s ease forwards;
+}
+
+@keyframes line-close {
+  to {
+    width: 0;
+    opacity: 0;
+  }
+}
+
+@keyframes label-out {
+  to {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loader-mark .letter,
+  .loader-label {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    text-shadow: none !important;
+  }
+  .loader-wipe {
+    animation: none !important;
+    transform: translateX(100%) !important;
+  }
+  .loader-line {
+    animation: none !important;
+    width: 88px !important;
+  }
+}
+
 /* ---------- NAV ---------- */
 nav {
   position: sticky;
@@ -79,6 +250,14 @@ nav .wrap {
 
 .brand span {
   color: var(--brass);
+}
+
+.brand-logo {
+  width: 32px;
+  height: 32px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
 }
 
 .nav-links {
@@ -378,6 +557,23 @@ html.js .reveal.in-view {
   transform: translateY(0);
 }
 
+/* jeda bertahap supaya item dalam satu grup muncul berurutan, bukan bersamaan */
+.about-grid p.reveal:nth-of-type(1) { transition-delay: 0s; }
+.about-grid p.reveal:nth-of-type(2) { transition-delay: 0.12s; }
+
+.skill-row.reveal:nth-of-type(1) { transition-delay: 0s; }
+.skill-row.reveal:nth-of-type(2) { transition-delay: 0.1s; }
+.skill-row.reveal:nth-of-type(3) { transition-delay: 0.2s; }
+
+.project.reveal:nth-of-type(1) { transition-delay: 0s; }
+.project.reveal:nth-of-type(2) { transition-delay: 0.12s; }
+.project.reveal:nth-of-type(3) { transition-delay: 0.24s; }
+
+.contact-list li.reveal:nth-child(1) { transition-delay: 0s; }
+.contact-list li.reveal:nth-child(2) { transition-delay: 0.08s; }
+.contact-list li.reveal:nth-child(3) { transition-delay: 0.16s; }
+.contact-list li.reveal:nth-child(4) { transition-delay: 0.24s; }
+
 /* ---------- ABOUT ---------- */
 .about-grid {
   display: grid;
@@ -466,12 +662,6 @@ html.js .reveal.in-view {
 }
 
 /* ---------- PROJECTS ---------- */
-/* FIX: .project punya beberapa child (index, h3, p, .stack-tags, .project-link).
-   Tanpa grid-column eksplisit, auto-placement grid akan menyebar child-child itu
-   ke kolom 1 & 2 bergantian per baris -> deskripsi/tags/link ikut kepencet ke
-   kolom 120px yang sempit. Solusinya: kunci project-index di kolom 1, dan semua
-   konten lain (judul, deskripsi, tags, link) di kolom 2. Gap dipisah jadi
-   column-gap saja supaya tidak menambah jarak vertikal berlebihan. */
 .project {
   display: grid;
   grid-template-columns: 120px 1fr;
@@ -541,11 +731,11 @@ html.js .reveal.in-view {
 }
 
 #projects .section-head {
-  margin-bottom: 20px; /* dari 44px, cukup kurangi sesuai selera */
+  margin-bottom: 20px;
 }
 
 #projects .project:first-of-type {
-  padding-top: 8px; /* dari 32px */
+  padding-top: 8px;
 }
 /* ---------- CONTACT ---------- */
 footer {
@@ -614,15 +804,15 @@ footer p {
   header.hero .wrap {
     grid-template-columns: 1fr;
   }
-  
+
   header.hero {
     padding: 64px 0 56px;
   }
-  
+
   header.hero h1 {
     font-size: 34px;
   }
-  
+
   .section-head,
   .about-grid,
   .skill-row,
@@ -640,11 +830,11 @@ footer p {
   .project .project-link {
     grid-column: 1;
   }
-  
+
   .facts {
     grid-template-columns: 1fr 1fr;
   }
-  
+
   section {
     padding: 56px 0;
   }
@@ -654,7 +844,7 @@ footer p {
     margin: 0 auto;
     width: 100%;
   }
-  
+
   .terminal-photo {
     aspect-ratio: 4/5;
     width: 100%;
